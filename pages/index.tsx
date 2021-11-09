@@ -73,7 +73,7 @@ const Home: NextPage = () => {
         </Box>
         <div style={{ display: 'flex' }}>
           <div style={{ minWidth: 100 }}>
-            <ProfileImage src='/icon.png' alt='Icon' />
+            <ProfileImage src='./icon.png' alt='Icon' />
           </div>
           <div style={{ marginLeft: 24 }}>
             <Typography color='textPrimary' sx={{ marginBottom: 1 }} variant='h5'>Suzuki@Prog24</Typography>
@@ -82,19 +82,24 @@ const Home: NextPage = () => {
         </div>
         <div style={{ marginTop: 16 }}>
           <p style={{ display: 'inline-block' }}>
-            <ProfileLink href='https://twitter.com/Prog24_jp' target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faTwitter} size='lg' color='#1DA1F2' /> Prog24_jp</ProfileLink>
+          <FontAwesomeIcon icon={faTwitter} size='lg' color='#1DA1F2' />
+            <ProfileLink href='https://twitter.com/Prog24_jp' target='_blank' rel="noreferrer"> Prog24_jp</ProfileLink>
           </p>
           <p style={{ display: 'inline-block' }}>
-            <ProfileLink href='https://github.com/Prog24' target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faGithub} size='lg' color='#171515' /> Prog24</ProfileLink>
+            <FontAwesomeIcon icon={faGithub} size='lg' color='#171515' />
+            <ProfileLink href='https://github.com/Prog24' target='_blank' rel="noreferrer"> Prog24</ProfileLink>
           </p>
           <p style={{ display: 'inline-block' }}>
-            <ProfileLink href='https://fb.me/suzuki.kenta.0808' target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faFacebook} size='lg' color='#4267B2' /> suzuki.kenta.0808</ProfileLink>
+            <FontAwesomeIcon icon={faFacebook} size='lg' color='#4267B2' />
+            <ProfileLink href='https://fb.me/suzuki.kenta.0808' target='_blank' rel="noreferrer"> suzuki.kenta.0808</ProfileLink>
           </p>
           <p style={{ display: 'inline-block' }}>
-            <ProfileLink href='https://note.com/Prog24' target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faRss} size='lg' color='#41C9B4' /> note.com/Prog24</ProfileLink>
+            <FontAwesomeIcon icon={faRss} size='lg' color='#41C9B4' />
+            <ProfileLink href='https://note.com/Prog24' target='_blank' rel="noreferrer"> note.com/Prog24</ProfileLink>
           </p>
           <p style={{ display: 'inline-block' }}>
-            <ProfileLink href='https://zenn.dev/prog24' target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faRss} size='lg' color='#3EA8FF' /> zenn.dev/prog24</ProfileLink>
+            <FontAwesomeIcon icon={faRss} size='lg' color='#3EA8FF' />
+            <ProfileLink href='https://zenn.dev/prog24' target='_blank' rel="noreferrer"> zenn.dev/prog24</ProfileLink>
           </p>
         </div>
       </Container>
