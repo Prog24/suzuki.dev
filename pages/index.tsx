@@ -9,9 +9,6 @@ import { Box, Typography, List, ListItem, ListItemButton, ListItemText, Containe
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faRss } from '@fortawesome/free-solid-svg-icons'
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import { config } from '@fortawesome/fontawesome-svg-core'
-config.autoAddCss = false
 import rssData from '../static/rss.json'
 
 const Root = styled('div')(({ theme }) => ({
@@ -82,7 +79,7 @@ const Home: NextPage = () => {
         </div>
         <div style={{ marginTop: 16 }}>
           <p style={{ display: 'inline-block' }}>
-          <FontAwesomeIcon icon={faTwitter} size='lg' color='#1DA1F2' />
+            <FontAwesomeIcon icon={faTwitter} size='lg' color='#1DA1F2' />
             <ProfileLink href='https://twitter.com/Prog24_jp' target='_blank' rel="noreferrer"> Prog24_jp</ProfileLink>
           </p>
           <p style={{ display: 'inline-block' }}>
