@@ -65,7 +65,7 @@ const Home: NextPage = () => {
             color='primary'
             onClick={() => {setMode(mode === 'light' ? 'dark' : 'light')}}
           >
-            {mode === 'light' ? <DarkModeOutlined /> : <LightModeOutlined />}
+            {mode === 'light' ? <DarkModeOutlined aria-label='Dark Mode' /> : <LightModeOutlined aria-label='Light Mode' />}
           </IconButton>
         </Box>
         <div style={{ display: 'flex' }}>
@@ -117,7 +117,7 @@ const Home: NextPage = () => {
             const hoge = formatDate(date, 'yyyy.MM.dd')
             return (
               <ListItem key={key} disablePadding divider>
-                <ListItemButton disableGutters component='a' href={data.url} target='_blank'>
+                <ListItemButton rel='noopener noreferrer' disableGutters component='a' href={data.url} target='_blank'>
                   <ListItemText primaryTypographyProps={{color:'textPrimary'}} primary={data.title} secondary={`${hoge} - ${data.site}`} />
                 </ListItemButton>
               </ListItem>
