@@ -11,6 +11,10 @@ const rssFeed = {
   note: {
     rss_url: 'https://note.com/Prog24/rss',
     profile_url: 'https://note.com/Prog24'
+  },
+  Blog: {
+    rss_url: 'https://old.prog24.com/rss',
+    profile_url: 'https://old.prog24.com'
   }
 }
 
