@@ -50,11 +50,11 @@ const Posts = () => {
                   primary={<Typography color='textPrimary'>{data.title}</Typography>}
                   secondary={
                     (data.site === 'Zenn' ? (
-                      <PostMeta color='textSecondary'>{hoge}　{<ZennIcon fontSize='small' sx={{color: '#1DA1F2'}} />} Posted on {data.site}</PostMeta>
+                      <PostMeta color='textSecondary'>{<ZennIcon fontSize='small' sx={{color: '#1DA1F2'}} />} {data.site} / {hoge}</PostMeta>
                     ) : (data.site === 'note' ? (
-                      <PostMeta color='textSecondary'>{hoge}　{<NoteIcon fontSize='small' sx={{color:'#41C9B4'}} />} Posted on {data.site}</PostMeta>
+                      <PostMeta color='textSecondary'>{<NoteIcon fontSize='small' sx={{color:'#41C9B4'}} />} {data.site} / {hoge}</PostMeta>
                     ) : (
-                      <PostMeta color='textSecondary'>{hoge}　{<RssFeed fontSize='small' color='primary' />} Posted on {data.site}</PostMeta>
+                      <PostMeta color='textSecondary'>{<RssFeed fontSize='small' color='primary' />} {data.site} / {hoge}</PostMeta>
                     )))
                   }
                 />
