@@ -4,9 +4,6 @@ import { AppProps } from "next/app";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import createEmotionCache from "../src/styling/createEmotionCache";
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import { config } from '@fortawesome/fontawesome-svg-core'
-config.autoAddCss = false
 import { lightTheme, darkTheme } from '../src/styling/theme'
 import { createTheme } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
