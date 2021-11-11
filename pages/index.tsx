@@ -1,9 +1,5 @@
-import { useContext } from 'react'
 import type { NextPage } from 'next'
-import { styled, ThemeProvider } from '@mui/material/styles'
-import { lightTheme, darkTheme } from '../src/styling/theme'
-import { createTheme } from '@mui/material'
-import { ThemeModeContext } from './_app'
+import { styled } from '@mui/material/styles'
 import Profile from '../src/components/Profile'
 import Posts from '../src/components/Posts'
 
@@ -12,16 +8,11 @@ const Root = styled('div')(({ theme }) => ({
 }))
 
 const Home: NextPage = () => {
-  const { mode } = useContext(ThemeModeContext)
-  const theme = createTheme(mode === 'light' ? lightTheme : darkTheme)
-
   return (
-    <ThemeProvider theme={theme}>
-      <Root>
-        <Profile />
-        <Posts />
-      </Root>
-    </ThemeProvider>
+    <Root>
+      <Profile />
+      <Posts />
+    </Root>
   )
 }
 
