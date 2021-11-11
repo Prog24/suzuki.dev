@@ -4,9 +4,11 @@ import { styled } from '@mui/material/styles'
 import { Container, Box, IconButton, Typography } from '@mui/material'
 import DarkModeOutlined from '@mui/icons-material/DarkModeOutlined'
 import LightModeOutlined from '@mui/icons-material/LightModeOutlined'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faRss } from '@fortawesome/free-solid-svg-icons'
+import { ZennIcon } from './assets/ZennIcon'
+import { NoteIcon } from './assets/NoteIcon'
+import Twitter from '@mui/icons-material/Twitter'
+import { FacebookRounded } from '@mui/icons-material'
+import GitHub from '@mui/icons-material/GitHub'
 
 const Root = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -25,9 +27,15 @@ const ProfileImage = styled('img')(({ theme }) => ({
   width: 100,
   height: 100,
 }))
-const ProfileLink = styled('a')(({ theme }) => ({
+const ProfileAnchor = styled('a')(({ theme }) => ({
   marginRight: 8,
   color: theme.palette.text.primary,
+}))
+const ProfileLink = styled('p')(({ theme }) => ({
+  display: 'inline-flex',
+  verticalAlign: 'text-bottom',
+  boxSizing: 'inherit',
+  alignItems: 'center',
 }))
 
 const Profile = () => {
@@ -54,26 +62,26 @@ const Profile = () => {
           </div>
         </div>
         <div style={{ marginTop: 16 }}>
-          <p style={{ display: 'inline-block' }}>
-            <FontAwesomeIcon width='22' icon={faTwitter} size='lg' color='#1DA1F2' />
-            <ProfileLink href='https://twitter.com/Prog24_jp' target='_blank' rel="noreferrer"> Prog24_jp</ProfileLink>
-          </p>
-          <p style={{ display: 'inline-block' }}>
-            <FontAwesomeIcon width='22' icon={faGithub} size='lg' color='#171515' />
-            <ProfileLink href='https://github.com/Prog24' target='_blank' rel="noreferrer"> Prog24</ProfileLink>
-          </p>
-          <p style={{ display: 'inline-block' }}>
-            <FontAwesomeIcon width='22' icon={faFacebook} size='lg' color='#4267B2' />
-            <ProfileLink href='https://fb.me/suzuki.kenta.0808' target='_blank' rel="noreferrer"> suzuki.kenta.0808</ProfileLink>
-          </p>
-          <p style={{ display: 'inline-block' }}>
-            <FontAwesomeIcon width='22' icon={faRss} size='lg' color='#41C9B4' />
-            <ProfileLink href='https://note.com/Prog24' target='_blank' rel="noreferrer"> note.com/Prog24</ProfileLink>
-          </p>
-          <p style={{ display: 'inline-block' }}>
-            <FontAwesomeIcon width='22' icon={faRss} size='lg' color='#3EA8FF' />
-            <ProfileLink href='https://zenn.dev/prog24' target='_blank' rel="noreferrer"> zenn.dev/prog24</ProfileLink>
-          </p>
+          <ProfileLink>
+            <Twitter sx={{color:'#1DA1F2'}} />
+            <ProfileAnchor href='https://twitter.com/Prog24_jp' target='_blank' rel="noreferrer"> Prog24_jp</ProfileAnchor>
+          </ProfileLink>
+          <ProfileLink>
+            <GitHub sx={{color: '#171515'}} />
+            <ProfileAnchor href='https://github.com/Prog24' target='_blank' rel="noreferrer"> Prog24</ProfileAnchor>
+          </ProfileLink>
+          <ProfileLink>
+            <FacebookRounded sx={{color: '#4267B2'}} />
+            <ProfileAnchor href='https://fb.me/suzuki.kenta.0808' target='_blank' rel="noreferrer"> suzuki.kenta.0808</ProfileAnchor>
+          </ProfileLink>
+          <ProfileLink>
+            <NoteIcon sx={{color:'#41C9B4'}} />
+            <ProfileAnchor href='https://note.com/Prog24' target='_blank' rel="noreferrer"> Prog24</ProfileAnchor>
+          </ProfileLink>
+          <ProfileLink>
+            <ZennIcon sx={{color: '#1DA1F2'}} />
+            <ProfileAnchor href='https://zenn.dev/prog24' target='_blank' rel="noreferrer"> prog24</ProfileAnchor>
+          </ProfileLink>
         </div>
       </Container>
     </Root>
