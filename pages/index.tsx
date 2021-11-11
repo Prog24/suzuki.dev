@@ -54,7 +54,7 @@ const ProfileLink = styled('a')(({ theme }) => ({
 
 
 const Home: NextPage = () => {
-  const [mode, setMode] = useState<'light' | 'dark'>('light')
+  const [mode, setMode] = useState<'light' | 'dark'>('dark')
   const theme = createTheme(mode === 'light' ? lightTheme : darkTheme)
   const Profile = () => (
     <ProfileRoot>
