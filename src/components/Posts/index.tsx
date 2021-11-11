@@ -49,13 +49,10 @@ const Posts = () => {
                   disableTypography
                   primary={<Typography color='textPrimary'>{data.title}</Typography>}
                   secondary={
-                    (data.site === 'Zenn' ? (
-                      <PostMeta color='textSecondary'>{<ZennIcon fontSize='small' sx={{color: '#1DA1F2'}} />} {data.site} / {hoge}</PostMeta>
-                    ) : (data.site === 'note' ? (
-                      <PostMeta color='textSecondary'>{<NoteIcon fontSize='small' sx={{color:'#41C9B4'}} />} {data.site} / {hoge}</PostMeta>
-                    ) : (
-                      <PostMeta color='textSecondary'>{<RssFeed fontSize='small' color='primary' />} {data.site} / {hoge}</PostMeta>
-                    )))
+                    <PostMeta color='textSecondary'>
+                      {data.site === 'Zenn' ? (<ZennIcon fontSize='small' sx={{color:'#1DA1F2'}} />) : data.site === 'note' ? <NoteIcon fontSize='small' sx={{color:'#41C9B4'}} /> : <RssFeed fontSize='small' color='primary' />}
+                      {data.site} / {hoge}
+                    </PostMeta>
                   }
                 />
               </ListItemButton>
