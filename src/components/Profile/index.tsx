@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { ThemeModeContext } from '../../../pages/_app'
 import { styled } from '@mui/material/styles'
-import { Container, Box, IconButton, Typography } from '@mui/material'
+import { Container, Box, IconButton, Typography, Tooltip } from '@mui/material'
 import DarkModeOutlined from '@mui/icons-material/DarkModeOutlined'
 import LightModeOutlined from '@mui/icons-material/LightModeOutlined'
 import { ZennIcon } from './assets/ZennIcon'
@@ -44,13 +44,15 @@ const Profile = () => {
     <Root>
       <Container maxWidth='md'>
         <Box sx={{ display: 'flex', flexDirection: 'row-reverse', p: 1 }}>
-          <IconButton
-            size='large'
-            color='primary'
-            onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
-          >
-            {mode === 'light' ? <DarkModeOutlined aria-label='Dark Mode' /> : <LightModeOutlined aria-label='Light Mode' />}
-          </IconButton>
+          <Tooltip title={(mode === 'light' ? 'Dark Mode' : 'Light Mode')} placement='bottom' >
+            <IconButton
+              size='large'
+              color='primary'
+              onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
+            >
+              {mode === 'light' ? <DarkModeOutlined aria-label='Dark Mode' /> : <LightModeOutlined aria-label='Light Mode' />}
+            </IconButton>
+          </Tooltip>
         </Box>
         <div style={{ display: 'flex' }}>
           <div style={{ minWidth: 100 }}>
