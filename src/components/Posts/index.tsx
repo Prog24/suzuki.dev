@@ -1,10 +1,9 @@
 import { Container, List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import rssData from '../../../static/rss.json'
-
-import { ZennIcon } from '../Profile/assets/ZennIcon'
-import { NoteIcon } from '../Profile/assets/NoteIcon'
 import RssFeed from '@mui/icons-material/RssFeed'
+import { ZennIcon } from 'src/assets/ZennIcon'
+import { NoteIcon } from 'src/assets/NoteIcon'
+import rssData from 'src/static/rss.json'
 
 const PostListArea = styled(Container)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {

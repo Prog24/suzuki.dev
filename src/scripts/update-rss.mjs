@@ -43,7 +43,7 @@ try {
     aTime > bTime ? -1 : 1
   })
 
-  writeFileSync('./static/rss.json', JSON.stringify(jsonFeed))
+  writeFileSync('./src/static/rss.json', JSON.stringify(jsonFeed))
 } catch(err) {
   console.error(err)
 }

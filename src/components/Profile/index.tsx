@@ -1,14 +1,15 @@
 import { useContext } from 'react'
-import { ThemeModeContext } from '../../../pages/_app'
 import { styled } from '@mui/material/styles'
 import { Container, Box, IconButton, Typography, Tooltip } from '@mui/material'
+// Icons
 import DarkModeOutlined from '@mui/icons-material/DarkModeOutlined'
 import LightModeOutlined from '@mui/icons-material/LightModeOutlined'
-import { ZennIcon } from './assets/ZennIcon'
-import { NoteIcon } from './assets/NoteIcon'
 import Twitter from '@mui/icons-material/Twitter'
-import { FacebookRounded } from '@mui/icons-material'
 import GitHub from '@mui/icons-material/GitHub'
+import FacebookRounded from '@mui/icons-material/FacebookRounded'
+import { ZennIcon } from 'src/assets/ZennIcon'
+import { NoteIcon } from 'src/assets/NoteIcon'
+import { ThemeModeContext } from 'src/providers/ThemeModeProvider'
 
 const Root = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
