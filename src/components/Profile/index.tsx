@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import Link from 'next/link'
 import { styled } from '@mui/material/styles'
 import { Container, Box, IconButton, Typography, Tooltip } from '@mui/material'
 // Icons
@@ -7,6 +8,7 @@ import LightModeOutlined from '@mui/icons-material/LightModeOutlined'
 import Twitter from '@mui/icons-material/Twitter'
 import GitHub from '@mui/icons-material/GitHub'
 import FacebookRounded from '@mui/icons-material/FacebookRounded'
+import RssFeed from '@mui/icons-material/RssFeed'
 import { ZennIcon } from 'src/assets/ZennIcon'
 import { NoteIcon } from 'src/assets/NoteIcon'
 import { ThemeModeContext } from 'src/providers/ThemeModeProvider'
@@ -38,6 +40,12 @@ const ProfileLink = styled('p')(({ theme }) => ({
   boxSizing: 'inherit',
   alignItems: 'center',
 }))
+const CustomLink = styled('a')(({ theme }) => ({
+  color: theme.palette.text.primary,
+  textDecoration: 'underline',
+  cursor: 'pointer',
+  marginRight: 8
+}))
 
 const Profile = () => {
   const { mode, setMode } = useContext(ThemeModeContext)
@@ -57,7 +65,7 @@ const Profile = () => {
         </Box>
         <div style={{ display: 'flex' }}>
           <div style={{ minWidth: 100 }}>
-            <ProfileImage src='./icon.png' alt='Icon' />
+            <ProfileImage src='/icon.png' alt='Icon' />
           </div>
           <div style={{ marginLeft: 24 }}>
             <Typography color='textPrimary' sx={{ marginBottom: 1 }} variant='h5'>Suzuki@Prog24</Typography>
@@ -84,6 +92,15 @@ const Profile = () => {
           <ProfileLink>
             <ZennIcon sx={{color: '#1DA1F2'}} />
             <ProfileAnchor href='https://zenn.dev/prog24' target='_blank' rel="noreferrer"> prog24</ProfileAnchor>
+          </ProfileLink>
+          <ProfileLink>
+            <RssFeed color='primary' />
+            {/* eslint-disable-next-line @next/next/link-passhref */}
+            <Link href='/blog'>
+              <CustomLink>
+                Blog
+              </CustomLink>
+            </Link>
           </ProfileLink>
         </div>
       </Container>
