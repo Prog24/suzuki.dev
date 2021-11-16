@@ -1,4 +1,5 @@
-import { Container, List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material'
+import Link from 'next/link'
+import { List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import RssFeed from '@mui/icons-material/RssFeed'
 import { ZennIcon } from 'src/assets/ZennIcon'
@@ -26,18 +27,36 @@ const Posts = () => {
         const hoge = formatDate(date, 'yyyy.MM.dd')
         return (
           <ListItem key={key} disablePadding divider>
-            <ListItemButton rel='noopener noreferrer' disableGutters component='a' href={data.url} target='_blank'>
-              <ListItemText
-                disableTypography
-                primary={<Typography color='textPrimary'>{data.title}</Typography>}
-                secondary={
-                  <PostMeta color='textSecondary'>
-                    {data.site === 'Zenn' ? (<ZennIcon fontSize='small' sx={{color:'#1DA1F2'}} />) : data.site === 'note' ? <NoteIcon fontSize='small' sx={{color:'#41C9B4'}} /> : <RssFeed fontSize='small' color='primary' />}
-                    {data.site} / {hoge}
-                  </PostMeta>
-                }
-              />
-            </ListItemButton>
+            {data.site === 'Blog' ? (
+              // eslint-disable-next-line @next/next/link-passhref
+              <Link href={data.url}>
+                <ListItemButton disableGutters>
+                  <ListItemText
+                    disableTypography
+                    primary={<Typography color='textPrimary'>{data.title}</Typography>}
+                    secondary={
+                      <PostMeta color='textSecondary'>
+                        <RssFeed fontSize='small' color='primary' />
+                        {data.site} / {hoge}
+                      </PostMeta>
+                    }
+                  />
+                </ListItemButton>
+              </Link>
+            ): (
+              <ListItemButton rel='noopener noreferrer' disableGutters component='a' href={data.url} target='_blank'>
+                <ListItemText
+                  disableTypography
+                  primary={<Typography color='textPrimary'>{data.title}</Typography>}
+                  secondary={
+                    <PostMeta color='textSecondary'>
+                      {data.site === 'Zenn' ? (<ZennIcon fontSize='small' sx={{color:'#1DA1F2'}} />) : data.site === 'note' ? <NoteIcon fontSize='small' sx={{color:'#41C9B4'}} /> : <RssFeed fontSize='small' color='primary' />}
+                      {data.site} / {hoge}
+                    </PostMeta>
+                  }
+                />
+              </ListItemButton>
+            )}
           </ListItem>
         )
       })}
