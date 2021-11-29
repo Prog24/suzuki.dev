@@ -74,10 +74,6 @@ const Profile = () => {
             <ProfileAnchor href='https://github.com/Prog24' target='_blank' rel="noreferrer"> Prog24</ProfileAnchor>
           </ProfileLink>
           <ProfileLink>
-            <FacebookRounded sx={{color: '#4267B2'}} />
-            <ProfileAnchor href='https://fb.me/suzuki.kenta.0808' target='_blank' rel="noreferrer"> suzuki.kenta.0808</ProfileAnchor>
-          </ProfileLink>
-          <ProfileLink>
             <NoteIcon sx={{color:'#41C9B4'}} />
             <ProfileAnchor href='https://note.com/Prog24' target='_blank' rel="noreferrer"> Prog24</ProfileAnchor>
           </ProfileLink>
