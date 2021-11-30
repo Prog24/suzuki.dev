@@ -13,8 +13,8 @@ const rssFeed = {
     profile_url: 'https://note.com/Prog24'
   },
   Blog: {
-    // rss_url: 'https://old.prog24.com/rss',
-    rss_url: 'http://localhost:8000/rss/feed.xml',
+    rss_url: 'https://old.prog24.com/rss',
+    // rss_url: `${process.env.BASE_URL}/rss/feed.xml`,
     profile_url: 'https://old.prog24.com'
   }
 }
