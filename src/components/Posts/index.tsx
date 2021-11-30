@@ -1,25 +1,10 @@
-import { Container, List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material'
+import Link from 'next/link'
+import { List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import RssFeed from '@mui/icons-material/RssFeed'
 import { ZennIcon } from 'src/assets/ZennIcon'
 import { NoteIcon } from 'src/assets/NoteIcon'
 import rssData from 'src/static/rss.json'
-
-const PostListArea = styled(Container)(({ theme }) => ({
-  [theme.breakpoints.down('md')]: {
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
-  },
-  [theme.breakpoints.up('md')]: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-}))
-const PostLists = styled(List)(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
-  padding: theme.spacing(2),
-  borderRadius: theme.spacing(1),
-}))
 
 const PostMeta = styled(Typography)(({ theme }) => ({
   display: 'inline-flex',
@@ -36,13 +21,29 @@ const Posts = () => {
     return format
   }
   return (
-    <PostListArea maxWidth='md'>
-      <PostLists>
-        {rssData.items.map((data, key) => {
-          const date = new Date(data.date)
-          const hoge = formatDate(date, 'yyyy.MM.dd')
-          return (
-            <ListItem key={key} disablePadding divider>
+    <List>
+      {rssData.items.map((data, key) => {
+        const date = new Date(data.date)
+        const hoge = formatDate(date, 'yyyy.MM.dd')
+        return (
+          <ListItem key={key} disablePadding divider>
+            {data.site === 'Blog' ? (
+              // eslint-disable-next-line @next/next/link-passhref
+              <Link href={data.url}>
+                <ListItemButton disableGutters>
+                  <ListItemText
+                    disableTypography
+                    primary={<Typography color='textPrimary'>{data.title}</Typography>}
+                    secondary={
+                      <PostMeta color='textSecondary'>
+                        <RssFeed fontSize='small' color='primary' />
+                        {data.site} / {hoge}
+                      </PostMeta>
+                    }
+                  />
+                </ListItemButton>
+              </Link>
+            ): (
               <ListItemButton rel='noopener noreferrer' disableGutters component='a' href={data.url} target='_blank'>
                 <ListItemText
                   disableTypography
@@ -55,11 +56,11 @@ const Posts = () => {
                   }
                 />
               </ListItemButton>
-            </ListItem>
-          )
-        })}
-      </PostLists>
-    </PostListArea>
+            )}
+          </ListItem>
+        )
+      })}
+    </List>
   )
 }
 

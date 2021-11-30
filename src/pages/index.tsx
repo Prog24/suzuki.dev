@@ -1,19 +1,23 @@
 import type { NextPage } from 'next'
-import { styled } from '@mui/material/styles'
-import Profile from 'src/components/Profile'
 import Posts from 'src/components/Posts'
-
-const Root = styled('div')(({ theme }) => ({
-  backgroundColor: theme.palette.background.default,
-}))
+import BasePage from 'src/components/BasePage'
+import generatedRssFeed from 'src/scripts/create-rss'
 
 const Home: NextPage = () => {
   return (
-    <Root>
-      <Profile />
+    <BasePage>
       <Posts />
-    </Root>
+    </BasePage>
   )
 }
 
 export default Home
+
+export async function getStaticProps() {
+  generatedRssFeed()
+  return {
+    props: {
+      // 
+    }
+  }
+}

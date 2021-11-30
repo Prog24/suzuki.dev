@@ -14,6 +14,7 @@ const rssFeed = {
   },
   Blog: {
     rss_url: 'https://old.prog24.com/rss',
+    // rss_url: `${process.env.BASE_URL}/rss/feed.xml`,
     profile_url: 'https://old.prog24.com'
   }
 }
