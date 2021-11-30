@@ -59,7 +59,7 @@ const SingleBlog = (props: any) => {
   const components = {
     code: CodeBlock,
     img: (props: any) => <img {...props} style={{ width: '100%' }} />,
-    a: PageLink,
+    a: (props: any) => <PageLink {...props} />,
   }
   return (
     <BasePage>
