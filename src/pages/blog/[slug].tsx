@@ -49,11 +49,17 @@ const CustomLink = styled('a')(({ theme }) => ({
   textDecoration: 'underline',
   cursor: 'pointer'
 }))
+const PageLink = styled('a')(({ theme }) => ({
+  color: theme.palette.primary.main,
+  textDecoration: 'underline',
+  cursor: 'pointer'
+}))
 
 const SingleBlog = (props: any) => {
   const components = {
     code: CodeBlock,
     img: (props: any) => <img {...props} style={{ width: '100%' }} />,
+    a: PageLink,
   }
   return (
     <BasePage>
