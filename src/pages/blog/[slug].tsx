@@ -8,7 +8,7 @@ import {
   ReactMarkdownNames,
 } from 'react-markdown/lib/ast-to-react'
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { dark } from "react-syntax-highlighter/dist/cjs/styles/hljs"
+import { a11yDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
 import { Tweet } from 'react-twitter-widgets'
 import { Typography, Breadcrumbs, Box, Chip } from '@mui/material'
 import { styled } from '@mui/material/styles'
@@ -34,7 +34,7 @@ const CodeBlock: CodeComponent | ReactMarkdownNames = ({
     )
   }
   return !inline && match ? (
-    <SyntaxHighlighter style={dark} language={match[1]} PreTag='div'>
+    <SyntaxHighlighter style={a11yDark} language={match[1]} PreTag='div'>
       {String(children).replace(/\n$/, '')}
     </SyntaxHighlighter>
   ) : (
