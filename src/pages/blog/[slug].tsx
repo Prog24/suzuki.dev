@@ -80,11 +80,11 @@ const SingleBlog = (props: any) => {
       </Breadcrumbs>
       <Box sx={{ m: 1 }} />
       <>
-        <Chip sx={{ mx: 0.5 }} size='small' label={props.frontmatter.category} />
+        <Chip sx={{ m: 0.5 }} size='small' label={props.frontmatter.category} />
         {props.frontmatter.tags.map((tag: string) => {
           return (
             <>
-              <Chip sx={{ mx: 0.5 }} size='small' label={tag} />
+              <Chip sx={{ m: 0.5 }} size='small' label={tag} />
             </>
           )
         })}
