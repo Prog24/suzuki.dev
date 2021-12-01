@@ -10,7 +10,7 @@ import {
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { dark } from "react-syntax-highlighter/dist/cjs/styles/hljs"
 import { Tweet } from 'react-twitter-widgets'
-import { Typography, Breadcrumbs, Box } from '@mui/material'
+import { Typography, Breadcrumbs, Box, Chip } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { ThemeModeContext } from 'src/providers/ThemeModeProvider'
 import BasePage from 'src/components/BasePage'
@@ -76,6 +76,17 @@ const SingleBlog = (props: any) => {
         </Link>
         <Typography color='textPrimary'>{props.frontmatter.title}</Typography>
       </Breadcrumbs>
+      <Box sx={{ m: 1 }} />
+      <>
+        <Chip sx={{ mx: 0.5 }} size='small' label={props.frontmatter.category} />
+        {props.frontmatter.tags.map((tag: string) => {
+          return (
+            <>
+              <Chip sx={{ mx: 0.5 }} size='small' label={tag} />
+            </>
+          )
+        })}
+      </>
       <Box sx={{ m: 2 }} />
       <ReactMarkdown
         children={props.markdownBody}
