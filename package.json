@@ -5,8 +5,7 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint",
-    "update-rss": "node ./src/scripts/update-rss.mjs"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/cache": "^11.5.0",
