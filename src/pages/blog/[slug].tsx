@@ -61,6 +61,8 @@ const SingleBlog = (props: any) => {
     img: (props: any) => <img {...props} style={{ width: '100%' }} />,
     a: (props: any) => <PageLink {...props} />,
   }
+  const postDate = new Date(props.frontmatter.date)
+  const postDateSlug = `${postDate.getFullYear()}.${postDate.getMonth()+1}.${postDate.getDay()}`
   return (
     <BasePage>
       <Breadcrumbs aria-label='breadcrumb'>
@@ -74,7 +76,7 @@ const SingleBlog = (props: any) => {
             blog
           </CustomLink>
         </Link>
-        <Typography color='textPrimary'>{props.frontmatter.title}</Typography>
+        <Typography color='textPrimary'>{props.frontmatter.title} - posted {postDateSlug}</Typography>
       </Breadcrumbs>
       <Box sx={{ m: 1 }} />
       <>
