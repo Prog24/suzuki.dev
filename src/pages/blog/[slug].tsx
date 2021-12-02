@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { useContext } from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
@@ -63,38 +64,53 @@ const SingleBlog = (props: any) => {
   }
   const postDate = new Date(props.frontmatter.date)
   const postDateSlug = `${postDate.getFullYear()}.${postDate.getMonth()+1}.${postDate.getDay()}`
+  const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : 'http://localhost:3000'
   return (
-    <BasePage>
-      <Breadcrumbs aria-label='breadcrumb'>
-        <Link href='/'>
-          <CustomLink>
-          HOME
-          </CustomLink>
-        </Link>
-        <Link href='/blog'>
-          <CustomLink>
-            blog
-          </CustomLink>
-        </Link>
-        <Typography color='textPrimary'>{props.frontmatter.title} - posted {postDateSlug}</Typography>
-      </Breadcrumbs>
-      <Box sx={{ m: 1 }} />
-      <>
-        <Chip sx={{ m: 0.5 }} size='small' label={props.frontmatter.category} />
-        {props.frontmatter.tags.map((tag: string) => {
-          return (
-            <>
-              <Chip sx={{ m: 0.5 }} size='small' label={tag} />
-            </>
-          )
-        })}
-      </>
-      <Box sx={{ m: 2 }} />
-      <ReactMarkdown
-        children={props.markdownBody}
-        components={components}
-      />
-    </BasePage>
+    <>
+      <Head>
+        <title>{props.frontmatter.title} - Suzuki@Prog24</title>
+        <meta name="description" content={props.frontmatter.description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`https://og-image-prog24.vercel.app/${props.frontmatter.title}.png`} />
+        <meta property="og:description" content={props.frontmatter.description} />
+        <meta property="og:url" content={`${baseUrl}/blog/${props.frontmatter.slug}`} />
+        <meta property="og:title" content={props.frontmatter.title} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@Prog24_jp" />
+        <meta name="twitter:creator" content="@Prog24_jp" />
+      </Head>
+      <BasePage>
+        <Breadcrumbs aria-label='breadcrumb'>
+          <Link href='/'>
+            <CustomLink>
+            HOME
+            </CustomLink>
+          </Link>
+          <Link href='/blog'>
+            <CustomLink>
+              blog
+            </CustomLink>
+          </Link>
+          <Typography color='textPrimary'>{props.frontmatter.title} - posted {postDateSlug}</Typography>
+        </Breadcrumbs>
+        <Box sx={{ m: 1 }} />
+        <>
+          <Chip sx={{ m: 0.5 }} size='small' label={props.frontmatter.category} />
+          {props.frontmatter.tags.map((tag: string) => {
+            return (
+              <>
+                <Chip sx={{ m: 0.5 }} size='small' label={tag} />
+              </>
+            )
+          })}
+        </>
+        <Box sx={{ m: 2 }} />
+        <ReactMarkdown
+          children={props.markdownBody}
+          components={components}
+        />
+      </BasePage>
+    </>
   )
 }
 
