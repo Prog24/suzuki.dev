@@ -64,7 +64,6 @@ const SingleBlog = (props: any) => {
   }
   const postDate = new Date(props.frontmatter.date)
   const postDateSlug = `${postDate.getFullYear()}.${postDate.getMonth()+1}.${postDate.getDay()}`
-  const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : 'http://localhost:3000'
   return (
     <>
       <Head>
@@ -73,7 +72,7 @@ const SingleBlog = (props: any) => {
         <meta property="og:type" content="website" />
         <meta property="og:image" content={`https://og-image-prog24.vercel.app/${props.frontmatter.title}.png`} />
         <meta property="og:description" content={props.frontmatter.description} />
-        <meta property="og:url" content={`${baseUrl}/blog/${props.frontmatter.slug}`} />
+        <meta property="og:url" content={`https://suzuki.dev/blog/${props.frontmatter.slug}`} />
         <meta property="og:title" content={props.frontmatter.title} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@Prog24_jp" />
