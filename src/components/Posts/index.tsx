@@ -22,7 +22,7 @@ const Posts = () => {
   }
   return (
     <List>
-      {rssData.items.map((data, key) => {
+      {rssData.map((data, key) => {
         const date = new Date(data.date)
         const hoge = formatDate(date, 'yyyy.MM.dd')
         return (

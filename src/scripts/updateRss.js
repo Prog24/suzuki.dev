@@ -45,9 +45,7 @@ const updateRss = async () => {
   const parser = new Parser()
 
   try {
-    const jsonFeed = {
-      items: []
-    }
+    var feedList = []
     for (const [site, info] of Object.entries(rssFeed)) {
       const feed = await parser.parseURL(info.rss_url)
       const items = feed.items.map((i) => {
@@ -58,7 +56,7 @@ const updateRss = async () => {
           site: site
         }
       })
-      jsonFeed['items'] = jsonFeed['items'].concat(items)
+      feedList = feedList.concat(items)
     }
     // Add Blog RSS
     getPosts().then(posts => {
@@ -71,15 +69,19 @@ const updateRss = async () => {
           site: 'Blog'
         }
       })
-      jsonFeed['items'] = jsonFeed['items'].concat(items)
+      feedList = feedList.concat(items)
       // Sort
-      jsonFeed['items'].sort((a, b) => {
+      feedList = feedList.sort((a, b) => {
         const aTime = new Date(a.date)
         const bTime = new Date(b.date)
-        aTime > bTime ? -1 : 1
+        if (aTime > bTime) {
+          return -1
+        } else {
+          return 1
+        }
       })
       // write file
-      writeFileSync('./src/static/rss.json', JSON.stringify(jsonFeed))
+      writeFileSync('./src/static/rss.json', JSON.stringify(feedList))
     })
   } catch(err) {
     console.error(err)
