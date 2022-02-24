@@ -16,6 +16,17 @@ import { styled } from '@mui/material/styles'
 import { ThemeModeContext } from 'src/providers/ThemeModeProvider'
 import BasePage from 'src/components/BasePage'
 
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  HatenaShareButton,
+  HatenaIcon,
+  PocketShareButton,
+  PocketIcon
+} from 'react-share'
+
 const CodeBlock: CodeComponent | ReactMarkdownNames = ({
   inline,
   className,
@@ -108,6 +119,21 @@ const SingleBlog = (props: any) => {
           children={props.markdownBody}
           components={components}
         />
+        <>
+          <Typography color='textPrimary' variant='subtitle1'>SNSでシェア</Typography>
+          <TwitterShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`} title={props.frontmatter.title} via={'Prog24_jp のブログ'}>
+            <TwitterIcon size={36} round />
+          </TwitterShareButton>
+          <FacebookShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`}>
+            <FacebookIcon size={36} round />
+          </FacebookShareButton>
+          <HatenaShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`} title={props.frontmatter.title}>
+            <HatenaIcon size={36} round />
+          </HatenaShareButton>
+          <PocketShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`} title={props.frontmatter.title}>
+            <PocketIcon size={36} round />
+          </PocketShareButton>
+        </>
       </BasePage>
     </>
   )
