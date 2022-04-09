@@ -69,7 +69,7 @@ const Profile = () => {
           </div>
           <div style={{ marginLeft: 24 }}>
             <Typography color='textPrimary' sx={{ marginBottom: 1 }} variant='h5'>Suzuki@Prog24</Typography>
-            <Typography color='textSecondary' variant='body1'>KSU / M2<br />情報推薦技術の研究したり、フロントエンドエンジニアしたり、UIデザイナしたり</Typography>
+            <Typography color='textSecondary' variant='body1'>Webエンジニア<br />最近はWeb系の開発をしている．</Typography>
           </div>
         </div>
         <div style={{ marginTop: 16 }}>
