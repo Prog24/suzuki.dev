@@ -68,7 +68,7 @@ const Profile = () => {
             <ProfileImage src='/icon.png' alt='Icon' />
           </div>
           <div style={{ marginLeft: 24 }}>
-            <Typography color='textPrimary' sx={{ marginBottom: 1 }} variant='h5'>Suzuki@Prog24</Typography>
+            <Typography color='textPrimary' sx={{ marginBottom: 1 }} variant='h5'>szk</Typography>
             <Typography color='textSecondary' variant='body1'>Webエンジニア<br />最近はWeb系の開発をしている．</Typography>
           </div>
         </div>
