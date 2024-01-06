@@ -8,10 +8,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/cache": "11.5.0",
-    "@emotion/react": "11.5.0",
-    "@emotion/server": "11.4.0",
-    "@emotion/styled": "11.3.0",
+    "@emotion/cache": "11.11.0",
+    "@emotion/react": "11.11.3",
+    "@emotion/server": "11.11.0",
+    "@emotion/styled": "11.11.0",
     "@mui/icons-material": "5.1.0",
     "@mui/material": "5.1.0",
     "gray-matter": "4.0.3",
