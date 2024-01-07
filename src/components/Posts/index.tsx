@@ -28,8 +28,7 @@ const Posts = () => {
         return (
           <ListItem key={key} disablePadding divider>
             {data.site === 'Blog' ? (
-              // eslint-disable-next-line @next/next/link-passhref
-              <Link href={data.url}>
+              <Link href={data.url} passHref>
                 <ListItemButton disableGutters>
                   <ListItemText
                     disableTypography

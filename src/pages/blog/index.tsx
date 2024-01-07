@@ -20,8 +20,7 @@ const Index = (props: any) => {
   return (
     <BasePage>
       <Breadcrumbs aria-label='breadcrumb'>
-        {/* eslint-disable-next-line @next/next/link-passhref */}
-        <Link href='/'><CustomLink>HOME</CustomLink></Link>
+        <Link href='/' passHref><CustomLink>HOME</CustomLink></Link>
         <Typography color='textPrimary'>blog</Typography>
       </Breadcrumbs>
       <List>
@@ -30,8 +29,7 @@ const Index = (props: any) => {
         const postDate = formatDate(dateRaw, 'yyyy.MM.dd')
         return (
           <ListItem key={index} disablePadding divider>
-            {/* eslint-disable-next-line @next/next/link-passhref */}
-            <Link href={`/blog/${item.frontmatter.slug}`}>
+            <Link href={`/blog/${item.frontmatter.slug}`} passHref>
             <ListItemButton disableGutters>
               <ListItemText
                 primary={item.frontmatter.title}
