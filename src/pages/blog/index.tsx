@@ -19,28 +19,30 @@ const Index = (props: any) => {
   }
   return (
     <BasePage>
-      <Breadcrumbs aria-label='breadcrumb'>
-        <Link href='/' passHref><CustomLink>HOME</CustomLink></Link>
-        <Typography color='textPrimary'>blog</Typography>
-      </Breadcrumbs>
-      <List>
-      {props.blogs.map((item: any, index: any) => {
-        const dateRaw = new Date(item.frontmatter.date)
-        const postDate = formatDate(dateRaw, 'yyyy.MM.dd')
-        return (
-          <ListItem key={index} disablePadding divider>
-            <Link href={`/blog/${item.frontmatter.slug}`} passHref>
-            <ListItemButton disableGutters>
-              <ListItemText
-                primary={item.frontmatter.title}
-                secondary={postDate}
-              />
-            </ListItemButton>
-            </Link>
-          </ListItem>
-        )
-      })}
-      </List>
+      <>
+        <Breadcrumbs aria-label='breadcrumb'>
+          <Link href='/' passHref><CustomLink>HOME</CustomLink></Link>
+          <Typography color='textPrimary'>blog</Typography>
+        </Breadcrumbs>
+        <List>
+        {props.blogs.map((item: any, index: any) => {
+          const dateRaw = new Date(item.frontmatter.date)
+          const postDate = formatDate(dateRaw, 'yyyy.MM.dd')
+          return (
+            <ListItem key={index} disablePadding divider>
+              <Link href={`/blog/${item.frontmatter.slug}`} passHref>
+              <ListItemButton disableGutters>
+                <ListItemText
+                  primary={item.frontmatter.title}
+                  secondary={postDate}
+                />
+              </ListItemButton>
+              </Link>
+            </ListItem>
+          )
+        })}
+        </List>
+      </>
     </BasePage>
   )
 }
