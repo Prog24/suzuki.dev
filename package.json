@@ -20,7 +20,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "9.0.1",
-    "react-share": "4.4.1",
+    "react-share": "5.0.3",
     "react-syntax-highlighter": "15.5.0",
     "react-twitter-widgets": "1.10.0"
   },
