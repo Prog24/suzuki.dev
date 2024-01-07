@@ -21,7 +21,7 @@ const CustomPaper = styled(Paper)(({ theme }) => ({
   borderRadius: theme.spacing(1),
 }))
 
-const BasePage: NextPage = ({ children }) => {
+const BasePage = ({ children }: { children: JSX.Element }) => {
   return (
     <Root>
       <Profile />

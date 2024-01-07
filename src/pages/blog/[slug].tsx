@@ -1,14 +1,12 @@
 /* eslint-disable */
 import { useContext } from 'react'
+import type { ClassAttributes, HTMLAttributes } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
-import {
-  CodeComponent,
-  ReactMarkdownNames,
-} from 'react-markdown/lib/ast-to-react'
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import type { ExtraProps } from 'react-markdown'
+import { Prism, SyntaxHighlighterProps } from "react-syntax-highlighter"
 import { a11yDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
 import { Tweet } from 'react-twitter-widgets'
 import { Typography, Breadcrumbs, Box, Chip } from '@mui/material'
@@ -27,12 +25,12 @@ import {
   PocketIcon
 } from 'react-share'
 
-const CodeBlock: CodeComponent | ReactMarkdownNames = ({
-  inline,
+const SyntaxHighlighter = (Prism as any) as React.FC<SyntaxHighlighterProps>;
+const CodeBlock = ({
   className,
   children,
   ...props
-}) => {
+}: ClassAttributes<HTMLPreElement> & HTMLAttributes<HTMLPreElement> & ExtraProps) => {
   const { mode, setMode } = useContext(ThemeModeContext)
   const match = /language-(\w+)/.exec(className || '')
   if (match![1] === 'twitter') {
@@ -45,7 +43,7 @@ const CodeBlock: CodeComponent | ReactMarkdownNames = ({
       />
     )
   }
-  return !inline && match ? (
+  return match ? (
     <SyntaxHighlighter style={a11yDark} language={match[1]} PreTag='div'>
       {String(children).replace(/\n$/, '')}
     </SyntaxHighlighter>
@@ -69,7 +67,7 @@ const PageLink = styled('a')(({ theme }) => ({
 
 const SingleBlog = (props: any) => {
   const components = {
-    code: CodeBlock,
+    code: (props: any) => <CodeBlock {...props} />,
     img: (props: any) => <img {...props} style={{ width: '100%' }} />,
     a: (props: any) => <PageLink {...props} />,
   }
@@ -90,49 +88,51 @@ const SingleBlog = (props: any) => {
         <meta name="twitter:creator" content="@Prog24_jp" />
       </Head>
       <BasePage>
-        <Breadcrumbs aria-label='breadcrumb'>
-          <Link href='/'>
-            <CustomLink>
-            HOME
-            </CustomLink>
-          </Link>
-          <Link href='/blog'>
-            <CustomLink>
-              blog
-            </CustomLink>
-          </Link>
-          <Typography color='textPrimary'>{props.frontmatter.title} - posted {postDateSlug}</Typography>
-        </Breadcrumbs>
-        <Box sx={{ m: 1 }} />
         <>
-          <Chip sx={{ m: 0.5 }} size='small' label={props.frontmatter.category} />
-          {props.frontmatter.tags.map((tag: string) => {
-            return (
-              <>
-                <Chip sx={{ m: 0.5 }} size='small' label={tag} />
-              </>
-            )
-          })}
-        </>
-        <Box sx={{ m: 2 }} />
-        <ReactMarkdown
-          children={props.markdownBody}
-          components={components}
-        />
-        <>
-          <Typography color='textPrimary' variant='subtitle1'>SNSでシェア</Typography>
-          <TwitterShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`} title={props.frontmatter.title} via={'Prog24_jp のブログ'}>
-            <TwitterIcon size={36} round />
-          </TwitterShareButton>
-          <FacebookShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`}>
-            <FacebookIcon size={36} round />
-          </FacebookShareButton>
-          <HatenaShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`} title={props.frontmatter.title}>
-            <HatenaIcon size={36} round />
-          </HatenaShareButton>
-          <PocketShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`} title={props.frontmatter.title}>
-            <PocketIcon size={36} round />
-          </PocketShareButton>
+          <Breadcrumbs aria-label='breadcrumb'>
+            <Link href='/'>
+              <CustomLink>
+              HOME
+              </CustomLink>
+            </Link>
+            <Link href='/blog'>
+              <CustomLink>
+                blog
+              </CustomLink>
+            </Link>
+            <Typography color='textPrimary'>{props.frontmatter.title} - posted {postDateSlug}</Typography>
+          </Breadcrumbs>
+          <Box sx={{ m: 1 }} />
+          <>
+            <Chip sx={{ m: 0.5 }} size='small' label={props.frontmatter.category} />
+            {props.frontmatter.tags.map((tag: string) => {
+              return (
+                <>
+                  <Chip sx={{ m: 0.5 }} size='small' label={tag} />
+                </>
+              )
+            })}
+          </>
+          <Box sx={{ m: 2 }} />
+          <ReactMarkdown
+            children={props.markdownBody}
+            components={components}
+          />
+          <>
+            <Typography color='textPrimary' variant='subtitle1'>SNSでシェア</Typography>
+            <TwitterShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`} title={props.frontmatter.title} via={'Prog24_jp のブログ'}>
+              <TwitterIcon size={36} round />
+            </TwitterShareButton>
+            <FacebookShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`}>
+              <FacebookIcon size={36} round />
+            </FacebookShareButton>
+            <HatenaShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`} title={props.frontmatter.title}>
+              <HatenaIcon size={36} round />
+            </HatenaShareButton>
+            <PocketShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`} title={props.frontmatter.title}>
+              <PocketIcon size={36} round />
+            </PocketShareButton>
+          </>
         </>
       </BasePage>
     </>
