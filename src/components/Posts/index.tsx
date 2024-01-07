@@ -28,20 +28,18 @@ const Posts = () => {
         return (
           <ListItem key={key} disablePadding divider>
             {data.site === 'Blog' ? (
-              <Link href={data.url} passHref>
-                <ListItemButton disableGutters>
-                  <ListItemText
-                    disableTypography
-                    primary={<Typography color='textPrimary'>{data.title}</Typography>}
-                    secondary={
-                      <PostMeta color='textSecondary'>
-                        <RssFeed fontSize='small' color='primary' />
-                        {data.site} / {hoge}
-                      </PostMeta>
-                    }
-                  />
-                </ListItemButton>
-              </Link>
+              <ListItemButton disableGutters component='a' href={data.url}>
+                <ListItemText
+                  disableTypography
+                  primary={<Typography color='textPrimary'>{data.title}</Typography>}
+                  secondary={
+                    <PostMeta color='textSecondary'>
+                      <RssFeed fontSize='small' color='primary' />
+                      {data.site} / {hoge}
+                    </PostMeta>
+                  }
+                />
+              </ListItemButton>
             ): (
               <ListItemButton rel='noopener noreferrer' disableGutters component='a' href={data.url} target='_blank'>
                 <ListItemText

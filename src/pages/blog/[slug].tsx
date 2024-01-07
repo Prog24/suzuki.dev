@@ -54,7 +54,7 @@ const CodeBlock = ({
   )
 }
 
-const CustomLink = styled('a')(({ theme }) => ({
+const CustomLink = styled(Link)(({ theme }) => ({
   color: theme.palette.text.secondary,
   textDecoration: 'underline',
   cursor: 'pointer'
@@ -90,16 +90,12 @@ const SingleBlog = (props: any) => {
       <BasePage>
         <>
           <Breadcrumbs aria-label='breadcrumb'>
-            <Link href='/'>
-              <CustomLink>
+            <CustomLink href='/'>
               HOME
-              </CustomLink>
-            </Link>
-            <Link href='/blog'>
-              <CustomLink>
-                blog
-              </CustomLink>
-            </Link>
+            </CustomLink>
+            <CustomLink href='/blog'>
+              blog
+            </CustomLink>
             <Typography color='textPrimary'>{props.frontmatter.title} - posted {postDateSlug}</Typography>
           </Breadcrumbs>
           <Box sx={{ m: 1 }} />

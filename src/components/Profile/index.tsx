@@ -40,7 +40,7 @@ const ProfileLink = styled('p')(({ theme }) => ({
   boxSizing: 'inherit',
   alignItems: 'center',
 }))
-const CustomLink = styled('a')(({ theme }) => ({
+const CustomLink = styled(Link)(({ theme }) => ({
   color: theme.palette.text.primary,
   textDecoration: 'underline',
   cursor: 'pointer',
@@ -91,9 +91,7 @@ const Profile = () => {
           </ProfileLink>
           <ProfileLink>
             <RssFeed color='primary' />
-            <Link href='/blog' passHref>
-              <CustomLink>{'Blog'}</CustomLink>
-            </Link>
+            <CustomLink href='/blog'>Blog</CustomLink>
           </ProfileLink>
         </div>
       </Container>
