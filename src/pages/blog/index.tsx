@@ -4,7 +4,7 @@ import BasePage from 'src/components/BasePage'
 import { List, ListItem, ListItemButton, ListItemText, Breadcrumbs, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
-const CustomLink = styled('a')(({ theme }) => ({
+const CustomLink = styled(Link)(({ theme }) => ({
   color: theme.palette.text.secondary,
   textDecoration: 'underline',
   cursor: 'pointer'
@@ -21,7 +21,7 @@ const Index = (props: any) => {
     <BasePage>
       <>
         <Breadcrumbs aria-label='breadcrumb'>
-          <Link href='/' passHref><CustomLink>HOME</CustomLink></Link>
+          <CustomLink href='/'>HOME</CustomLink>
           <Typography color='textPrimary'>blog</Typography>
         </Breadcrumbs>
         <List>
@@ -30,14 +30,12 @@ const Index = (props: any) => {
           const postDate = formatDate(dateRaw, 'yyyy.MM.dd')
           return (
             <ListItem key={index} disablePadding divider>
-              <Link href={`/blog/${item.frontmatter.slug}`} passHref>
-              <ListItemButton disableGutters>
+              <ListItemButton disableGutters component='a' href={`/blog/${item.frontmatter.slug}`}>
                 <ListItemText
                   primary={item.frontmatter.title}
                   secondary={postDate}
                 />
               </ListItemButton>
-              </Link>
             </ListItem>
           )
         })}
