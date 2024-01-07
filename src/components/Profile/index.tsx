@@ -91,8 +91,7 @@ const Profile = () => {
           </ProfileLink>
           <ProfileLink>
             <RssFeed color='primary' />
-            {/* eslint-disable-next-line @next/next/link-passhref */}
-            <Link href='/blog'>
+            <Link href='/blog' passHref>
               <CustomLink>{'Blog'}</CustomLink>
             </Link>
           </ProfileLink>
