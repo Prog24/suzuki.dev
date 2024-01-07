@@ -19,7 +19,7 @@
     "raw-loader": "4.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-markdown": "8.0.7",
+    "react-markdown": "9.0.1",
     "react-share": "4.4.1",
     "react-syntax-highlighter": "15.5.0",
     "react-twitter-widgets": "1.10.0"
@@ -33,7 +33,7 @@
     "eslint": "8.56.0",
     "eslint-config-next": "12.3.4",
     "feed": "4.2.2",
-    "marked": "4.3.0",
+    "marked": "11.1.1",
     "rss-parser": "3.13.0",
     "typescript": "5.3.3"
   },
