@@ -76,7 +76,7 @@ const SingleBlog = (props: any) => {
   return (
     <>
       <Head>
-        <title>{props.frontmatter.title} - Suzuki@Prog24</title>
+        <title>{props.frontmatter.title} - szk</title>
         <meta name="description" content={props.frontmatter.description} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={`https://og-image-prog24.vercel.app/${props.frontmatter.title}.png`} />
