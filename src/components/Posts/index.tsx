@@ -28,7 +28,7 @@ const Posts = () => {
         return (
           <ListItem key={key} disablePadding divider>
             {data.site === "Blog" ? (
-              <ListItemButton disableGutters component="a" href={data.url}>
+              <ListItemButton disableGutters component={Link} href={data.url}>
                 <ListItemText
                   disableTypography
                   primary={<Typography color="textPrimary">{data.title}</Typography>}
