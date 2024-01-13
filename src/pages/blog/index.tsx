@@ -30,7 +30,7 @@ const Index = (props: any) => {
             const postDate = formatDate(dateRaw, "yyyy.MM.dd")
             return (
               <ListItem key={index} disablePadding divider>
-                <ListItemButton disableGutters component="a" href={`/blog/${item.frontmatter.slug}`}>
+                <ListItemButton disableGutters component={Link} href={`/blog/${item.frontmatter.slug}`}>
                   <ListItemText primary={item.frontmatter.title} secondary={postDate} />
                 </ListItemButton>
               </ListItem>
