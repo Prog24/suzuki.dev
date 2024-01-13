@@ -1,6 +1,6 @@
 import { writeFileSync } from "fs"
 import Parser from "rss-parser"
-import matter from 'gray-matter'
+import matter from "gray-matter"
 
 const baseUrl = process.env.BASE_URL
 
@@ -14,11 +14,11 @@ const getPosts = async () => {
       const document = matter(value.default)
       return {
         frontmatter: document.data,
-        slug: document.data.slug
+        slug: document.data.slug,
       }
     })
     return data
-  })(require.context('src/data', true, /\.md$/))
+  })(require.context("src/data", true, /\.md$/))
   const sortingArticles = blogs.sort((a, b) => {
     const aTime = new Date(a.frontmatter.date)
     const bTime = new Date(b.frontmatter.date)
@@ -34,13 +34,13 @@ const getPosts = async () => {
 const updateRss = async () => {
   const rssFeed = {
     Zenn: {
-      rss_url: 'https://zenn.dev/prog24/feed?include_scraps=1&all=1',
-      profile_url: 'https://zenn.dev/prog24'
+      rss_url: "https://zenn.dev/prog24/feed?include_scraps=1&all=1",
+      profile_url: "https://zenn.dev/prog24",
     },
     note: {
-      rss_url: 'https://note.com/Prog24/rss',
-      profile_url: 'https://note.com/Prog24'
-    }
+      rss_url: "https://note.com/Prog24/rss",
+      profile_url: "https://note.com/Prog24",
+    },
   }
   const parser = new Parser()
 
@@ -53,20 +53,20 @@ const updateRss = async () => {
           title: i.title,
           url: i.link,
           date: i.pubDate,
-          site: site
+          site: site,
         }
       })
       feedList = feedList.concat(items)
     }
     // Add Blog RSS
-    getPosts().then(posts => {
+    getPosts().then((posts) => {
       const items = posts.map((post) => {
         const url = `${baseUrl}/blog/${post.slug}`
         return {
           title: post.frontmatter.title,
           url: url,
           date: post.frontmatter.date,
-          site: 'Blog'
+          site: "Blog",
         }
       })
       feedList = feedList.concat(items)
@@ -81,9 +81,9 @@ const updateRss = async () => {
         }
       })
       // write file
-      writeFileSync('./src/static/rss.json', JSON.stringify(feedList))
+      writeFileSync("./src/static/rss.json", JSON.stringify(feedList))
     })
-  } catch(err) {
+  } catch (err) {
     console.error(err)
   }
 }

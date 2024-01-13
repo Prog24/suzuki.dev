@@ -5,7 +5,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "format:check": "biome format src",
+    "format:write": "biome format src --write",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/cache": "11.11.0",
@@ -26,13 +28,13 @@
   },
   "devDependencies": {
     "@babel/core": "7.23.7",
+    "@biomejs/biome": "1.5.1",
     "@types/node": "20.10.6",
     "@types/react": "18.2.47",
     "@types/react-syntax-highlighter": "15.5.11",
     "@types/webpack-env": "1.18.4",
-    "eslint": "8.56.0",
-    "eslint-config-next": "14.0.4",
     "feed": "4.2.2",
+    "husky": "8.0.3",
     "marked": "11.1.1",
     "rss-parser": "3.13.0",
     "typescript": "5.3.3"
