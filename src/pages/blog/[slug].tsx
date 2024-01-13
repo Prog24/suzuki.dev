@@ -1,18 +1,18 @@
 /* eslint-disable */
-import { useContext } from 'react'
-import type { ClassAttributes, HTMLAttributes } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import matter from 'gray-matter'
-import ReactMarkdown from 'react-markdown'
-import type { ExtraProps } from 'react-markdown'
+import { useContext } from "react"
+import type { ClassAttributes, HTMLAttributes } from "react"
+import Head from "next/head"
+import Link from "next/link"
+import matter from "gray-matter"
+import ReactMarkdown from "react-markdown"
+import type { ExtraProps } from "react-markdown"
 import { Prism, SyntaxHighlighterProps } from "react-syntax-highlighter"
 import { a11yDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
-import { Tweet } from 'react-twitter-widgets'
-import { Typography, Breadcrumbs, Box, Chip } from '@mui/material'
-import { styled } from '@mui/material/styles'
-import { ThemeModeContext } from 'src/providers/ThemeModeProvider'
-import BasePage from 'src/components/BasePage'
+import { Tweet } from "react-twitter-widgets"
+import { Typography, Breadcrumbs, Box, Chip } from "@mui/material"
+import { styled } from "@mui/material/styles"
+import { ThemeModeContext } from "src/providers/ThemeModeProvider"
+import BasePage from "src/components/BasePage"
 
 import {
   FacebookIcon,
@@ -22,30 +22,30 @@ import {
   HatenaShareButton,
   HatenaIcon,
   PocketShareButton,
-  PocketIcon
-} from 'react-share'
+  PocketIcon,
+} from "react-share"
 
-const SyntaxHighlighter = (Prism as any) as React.FC<SyntaxHighlighterProps>;
+const SyntaxHighlighter = Prism as any as React.FC<SyntaxHighlighterProps>
 const CodeBlock = ({
   className,
   children,
   ...props
 }: ClassAttributes<HTMLPreElement> & HTMLAttributes<HTMLPreElement> & ExtraProps) => {
   const { mode, setMode } = useContext(ThemeModeContext)
-  const match = /language-(\w+)/.exec(className || '')
-  if (match![1] === 'twitter') {
+  const match = /language-(\w+)/.exec(className || "")
+  if (match![1] === "twitter") {
     return (
       <Tweet
-        tweetId={String(children).replace(/\n$/, '')}
+        tweetId={String(children).replace(/\n$/, "")}
         options={{
-          theme: (mode === 'dark') && 'dark'
+          theme: mode === "dark" && "dark",
         }}
       />
     )
   }
   return match ? (
-    <SyntaxHighlighter style={a11yDark} language={match[1]} PreTag='div'>
-      {String(children).replace(/\n$/, '')}
+    <SyntaxHighlighter style={a11yDark} language={match[1]} PreTag="div">
+      {String(children).replace(/\n$/, "")}
     </SyntaxHighlighter>
   ) : (
     <code className={className} {...props}>
@@ -56,23 +56,23 @@ const CodeBlock = ({
 
 const CustomLink = styled(Link)(({ theme }) => ({
   color: theme.palette.text.secondary,
-  textDecoration: 'underline',
-  cursor: 'pointer'
+  textDecoration: "underline",
+  cursor: "pointer",
 }))
-const PageLink = styled('a')(({ theme }) => ({
+const PageLink = styled("a")(({ theme }) => ({
   color: theme.palette.primary.main,
-  textDecoration: 'underline',
-  cursor: 'pointer'
+  textDecoration: "underline",
+  cursor: "pointer",
 }))
 
 const SingleBlog = (props: any) => {
   const components = {
     code: (props: any) => <CodeBlock {...props} />,
-    img: (props: any) => <img {...props} style={{ width: '100%' }} />,
+    img: (props: any) => <img {...props} style={{ width: "100%" }} />,
     a: (props: any) => <PageLink {...props} />,
   }
   const postDate = new Date(props.frontmatter.date)
-  const postDateSlug = `${postDate.getFullYear()}.${postDate.getMonth()+1}.${postDate.getDay()}`
+  const postDateSlug = `${postDate.getFullYear()}.${postDate.getMonth() + 1}.${postDate.getDay()}`
   return (
     <>
       <Head>
@@ -89,43 +89,50 @@ const SingleBlog = (props: any) => {
       </Head>
       <BasePage>
         <>
-          <Breadcrumbs aria-label='breadcrumb'>
-            <CustomLink href='/'>
-              HOME
-            </CustomLink>
-            <CustomLink href='/blog'>
-              blog
-            </CustomLink>
-            <Typography color='textPrimary'>{props.frontmatter.title} - posted {postDateSlug}</Typography>
+          <Breadcrumbs aria-label="breadcrumb">
+            <CustomLink href="/">HOME</CustomLink>
+            <CustomLink href="/blog">blog</CustomLink>
+            <Typography color="textPrimary">
+              {props.frontmatter.title} - posted {postDateSlug}
+            </Typography>
           </Breadcrumbs>
           <Box sx={{ m: 1 }} />
           <>
-            <Chip sx={{ m: 0.5 }} size='small' label={props.frontmatter.category} />
+            <Chip sx={{ m: 0.5 }} size="small" label={props.frontmatter.category} />
             {props.frontmatter.tags.map((tag: string) => {
               return (
                 <>
-                  <Chip sx={{ m: 0.5 }} size='small' label={tag} />
+                  <Chip sx={{ m: 0.5 }} size="small" label={tag} />
                 </>
               )
             })}
           </>
           <Box sx={{ m: 2 }} />
-          <ReactMarkdown
-            children={props.markdownBody}
-            components={components}
-          />
+          <ReactMarkdown children={props.markdownBody} components={components} />
           <>
-            <Typography color='textPrimary' variant='subtitle1'>SNSでシェア</Typography>
-            <TwitterShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`} title={props.frontmatter.title} via={'Prog24_jp のブログ'}>
+            <Typography color="textPrimary" variant="subtitle1">
+              SNSでシェア
+            </Typography>
+            <TwitterShareButton
+              url={`https://suzuki.dev/blog/${props.frontmatter.slug}`}
+              title={props.frontmatter.title}
+              via={"Prog24_jp のブログ"}
+            >
               <TwitterIcon size={36} round />
             </TwitterShareButton>
             <FacebookShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`}>
               <FacebookIcon size={36} round />
             </FacebookShareButton>
-            <HatenaShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`} title={props.frontmatter.title}>
+            <HatenaShareButton
+              url={`https://suzuki.dev/blog/${props.frontmatter.slug}`}
+              title={props.frontmatter.title}
+            >
               <HatenaIcon size={36} round />
             </HatenaShareButton>
-            <PocketShareButton url={`https://suzuki.dev/blog/${props.frontmatter.slug}`} title={props.frontmatter.title}>
+            <PocketShareButton
+              url={`https://suzuki.dev/blog/${props.frontmatter.slug}`}
+              title={props.frontmatter.title}
+            >
               <PocketIcon size={36} round />
             </PocketShareButton>
           </>
@@ -148,7 +155,7 @@ export async function getStaticPaths() {
       return document.data.slug
     })
     return data
-  })(require.context('src/data', true, /\.md$/))
+  })(require.context("src/data", true, /\.md$/))
 
   const paths = blogSlug.map((blogSlug: any) => `/blog/${blogSlug}`)
 
@@ -172,7 +179,7 @@ export async function getStaticProps(context: any) {
       }
     })
     return data
-  })(require.context('src/data', true, /\.md$/))
+  })(require.context("src/data", true, /\.md$/))
   const hoge = blogSlug.filter(Boolean)
   const filePath = hoge[0].slice(2)
 
@@ -182,6 +189,6 @@ export async function getStaticProps(context: any) {
     props: {
       frontmatter: singleDocument.data,
       markdownBody: singleDocument.content,
-    }
+    },
   }
 }
