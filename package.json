@@ -7,7 +7,7 @@
     "start": "next start",
     "format:check": "biome format src",
     "format:write": "biome format src --write",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/cache": "11.11.0",
