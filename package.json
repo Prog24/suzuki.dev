@@ -29,7 +29,7 @@
   "devDependencies": {
     "@babel/core": "7.23.9",
     "@biomejs/biome": "1.5.3",
-    "@types/node": "20.11.8",
+    "@types/node": "20.11.10",
     "@types/react": "18.2.48",
     "@types/react-syntax-highlighter": "15.5.11",
     "@types/webpack-env": "1.18.4",
