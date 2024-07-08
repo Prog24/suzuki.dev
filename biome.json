@@ -23,9 +23,7 @@
       "correctness": {
         "noUndeclaredVariables": "error",
         "noUnusedVariables": "error",
-        "useHookAtTopLevel": "error"
-      },
-      "nursery": {
+        "useHookAtTopLevel": "error",
         "noUnusedImports": "error"
       }
     }
