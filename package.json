@@ -10,14 +10,14 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@emotion/cache": "11.11.0",
-    "@emotion/react": "11.11.4",
+    "@emotion/cache": "11.13.1",
+    "@emotion/react": "11.13.0",
     "@emotion/server": "11.11.0",
-    "@emotion/styled": "11.11.5",
-    "@mui/icons-material": "5.16.0",
-    "@mui/material": "5.16.0",
+    "@emotion/styled": "11.13.0",
+    "@mui/icons-material": "5.16.7",
+    "@mui/material": "5.16.7",
     "gray-matter": "4.0.3",
-    "next": "14.2.4",
+    "next": "14.2.5",
     "raw-loader": "4.0.2",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -27,17 +27,17 @@
     "react-twitter-widgets": "1.11.0"
   },
   "devDependencies": {
-    "@babel/core": "7.24.7",
+    "@babel/core": "7.25.2",
     "@biomejs/biome": "1.8.3",
-    "@types/node": "20.14.10",
+    "@types/node": "20.14.14",
     "@types/react": "18.3.3",
     "@types/react-syntax-highlighter": "15.5.13",
     "@types/webpack-env": "1.18.5",
     "feed": "4.2.2",
-    "husky": "9.0.11",
+    "husky": "9.1.4",
     "marked": "11.2.0",
     "rss-parser": "3.13.0",
-    "typescript": "5.5.3"
+    "typescript": "5.5.4"
   },
   "alias": {
     "src": "./src"
