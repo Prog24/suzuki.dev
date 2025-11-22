@@ -35,7 +35,7 @@
     "@types/webpack-env": "1.18.8",
     "feed": "4.2.2",
     "husky": "9.1.7",
-    "marked": "11.2.0",
+    "marked": "17.0.1",
     "rss-parser": "3.13.0",
     "typescript": "5.9.3"
   },

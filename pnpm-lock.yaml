@@ -79,8 +79,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       marked:
-        specifier: 11.2.0
-        version: 11.2.0
+        specifier: 17.0.1
+        version: 17.0.1
       rss-parser:
         specifier: 3.13.0
         version: 3.13.0
@@ -995,9 +995,9 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  marked@11.2.0:
-    resolution: {integrity: sha512-HR0m3bvu0jAPYiIvLUUQtdg1g6D247//lvcekpHO1WMvbwDlwSkZAX9Lw4F4YHE1T0HaaNve0tuAWuV1UJ6vtw==}
-    engines: {node: '>= 18'}
+  marked@17.0.1:
+    resolution: {integrity: sha512-boeBdiS0ghpWcSwoNm/jJBwdpFaMnZWRzjA6SkUMYb40SVaN1x7mmfGKp0jvexGcx+7y2La5zRZsYFZI6Qpypg==}
+    engines: {node: '>= 20'}
     hasBin: true
 
   mdast-util-from-markdown@2.0.2:
@@ -2418,7 +2418,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  marked@11.2.0: {}
+  marked@17.0.1: {}
 
   mdast-util-from-markdown@2.0.2:
     dependencies:
