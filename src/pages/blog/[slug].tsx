@@ -100,11 +100,7 @@ const SingleBlog = (props: any) => {
           <>
             <Chip sx={{ m: 0.5 }} size="small" label={props.frontmatter.category} />
             {props.frontmatter.tags.map((tag: string) => {
-              return (
-                <>
-                  <Chip sx={{ m: 0.5 }} size="small" label={tag} />
-                </>
-              )
+              return <Chip sx={{ m: 0.5 }} size="small" label={tag} key={tag} />
             })}
           </>
           <Box sx={{ m: 2 }} />
