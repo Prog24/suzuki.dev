@@ -1,4 +1,5 @@
 import type { NextPage } from "next"
+import { JSX } from "react"
 import { styled } from "@mui/material/styles"
 import { Container, Paper } from "@mui/material"
 import Profile from "src/components/Profile"

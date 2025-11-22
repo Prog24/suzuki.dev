@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, JSX } from "react"
 import { createTheme } from "@mui/material"
 import { ThemeProvider } from "@mui/material/styles"
 import ThemeModeContext from "./ThemeModeContext"
