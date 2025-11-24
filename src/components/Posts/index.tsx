@@ -5,6 +5,7 @@ import RssFeed from "@mui/icons-material/RssFeed"
 import { ZennIcon } from "src/assets/ZennIcon"
 import { NoteIcon } from "src/assets/NoteIcon"
 import rssData from "src/static/rss.json"
+import formatDate from "src/utils/formatDate"
 
 const PostMeta = styled(Typography)(({ theme }) => ({
   display: "inline-flex",
@@ -14,17 +15,10 @@ const PostMeta = styled(Typography)(({ theme }) => ({
 }))
 
 const Posts = () => {
-  const formatDate = (date: any, format: string) => {
-    format = format.replace(/yyyy/g, date.getFullYear())
-    format = format.replace(/MM/g, ("0" + (date.getMonth() + 1)).slice(-2))
-    format = format.replace(/dd/g, ("0" + date.getDate()).slice(-2))
-    return format
-  }
   return (
     <List>
       {rssData.map((data, key) => {
-        const date = new Date(data.date)
-        const hoge = formatDate(date, "yyyy.MM.dd")
+        const formattedDate = formatDate(data.date)
         return (
           <ListItem key={key} disablePadding divider>
             {data.site === "Blog" ? (
@@ -35,7 +29,7 @@ const Posts = () => {
                   secondary={
                     <PostMeta color="textSecondary">
                       <RssFeed fontSize="small" color="primary" />
-                      {data.site} / {hoge}
+                      {data.site} / {formattedDate}
                     </PostMeta>
                   }
                 />
@@ -54,7 +48,7 @@ const Posts = () => {
                       ) : (
                         <RssFeed fontSize="small" color="primary" />
                       )}
-                      {data.site} / {hoge}
+                      {data.site} / {formattedDate}
                     </PostMeta>
                   }
                 />

@@ -3,6 +3,7 @@ import matter from "gray-matter"
 import BasePage from "src/components/BasePage"
 import { List, ListItem, ListItemButton, ListItemText, Breadcrumbs, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
+import formatDate from "src/utils/formatDate"
 
 const CustomLink = styled(Link)(({ theme }) => ({
   color: theme.palette.text.secondary,
@@ -11,12 +12,6 @@ const CustomLink = styled(Link)(({ theme }) => ({
 }))
 
 const Index = (props: any) => {
-  const formatDate = (date: any, format: string) => {
-    format = format.replace(/yyyy/g, date.getFullYear())
-    format = format.replace(/MM/g, ("0" + (date.getMonth() + 1)).slice(-2))
-    format = format.replace(/dd/g, ("0" + date.getDate()).slice(-2))
-    return format
-  }
   return (
     <BasePage>
       <>
@@ -26,8 +21,7 @@ const Index = (props: any) => {
         </Breadcrumbs>
         <List>
           {props.blogs.map((item: any, index: any) => {
-            const dateRaw = new Date(item.frontmatter.date)
-            const postDate = formatDate(dateRaw, "yyyy.MM.dd")
+            const postDate = formatDate(item.frontmatter.date)
             return (
               <ListItem key={index} disablePadding divider>
                 <ListItemButton disableGutters component={Link} href={`/blog/${item.frontmatter.slug}`}>

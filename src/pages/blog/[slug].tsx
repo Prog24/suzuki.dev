@@ -13,6 +13,7 @@ import { Typography, Breadcrumbs, Box, Chip } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import { ThemeModeContext } from "src/providers/ThemeModeProvider"
 import BasePage from "src/components/BasePage"
+import formatDate from "src/utils/formatDate"
 
 import {
   FacebookIcon,
@@ -71,8 +72,7 @@ const SingleBlog = (props: any) => {
     img: (props: any) => <img {...props} style={{ width: "100%" }} />,
     a: (props: any) => <PageLink target="_blank" rel="noopener noreferrer" {...props} />,
   }
-  const postDate = new Date(props.frontmatter.date)
-  const postDateSlug = `${postDate.getFullYear()}.${postDate.getMonth() + 1}.${postDate.getDay()}`
+  const postDateSlug = formatDate(props.frontmatter.date)
   return (
     <>
       <Head>
