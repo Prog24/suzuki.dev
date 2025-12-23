@@ -35,7 +35,7 @@ const CodeBlock = ({
   const match = /language-(\w+)/.exec(className || "")
 
   useEffect(() => {
-    if (match && match[1] !== "twitter") {
+    if (match?.[1] && match[1] !== "twitter") {
       const code = String(children).replace(/\n$/, "")
       codeToHtml(code, {
         lang: match[1],
@@ -61,7 +61,13 @@ const CodeBlock = ({
   }
 
   return match ? (
-    <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+    highlightedCode ? (
+      <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+    ) : (
+      <pre>
+        <code>{String(children).replace(/\n$/, "")}</code>
+      </pre>
+    )
   ) : (
     <code className={className} {...props}>
       {children}
