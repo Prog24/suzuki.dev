@@ -1,13 +1,12 @@
 /* eslint-disable */
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import type { ClassAttributes, HTMLAttributes } from "react"
 import Head from "next/head"
 import Link from "next/link"
 import matter from "gray-matter"
 import ReactMarkdown from "react-markdown"
 import type { ExtraProps } from "react-markdown"
-import { Prism, SyntaxHighlighterProps } from "react-syntax-highlighter"
-import { a11yDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
+import { codeToHtml } from "shiki"
 import { Tweet } from "react-twitter-widgets"
 import { Typography, Breadcrumbs, Box, Chip } from "@mui/material"
 import { styled } from "@mui/material/styles"
@@ -26,15 +25,31 @@ import {
   PocketIcon,
 } from "react-share"
 
-const SyntaxHighlighter = Prism as any as React.FC<SyntaxHighlighterProps>
 const CodeBlock = ({
   className,
   children,
   ...props
 }: ClassAttributes<HTMLPreElement> & HTMLAttributes<HTMLPreElement> & ExtraProps) => {
   const { mode, setMode } = useContext(ThemeModeContext)
+  const [highlightedCode, setHighlightedCode] = useState<string>("")
   const match = /language-(\w+)/.exec(className || "")
-  if (match![1] === "twitter") {
+
+  useEffect(() => {
+    if (match && match[1] !== "twitter") {
+      const code = String(children).replace(/\n$/, "")
+      codeToHtml(code, {
+        lang: match[1],
+        theme: "github-dark",
+      })
+        .then((html) => setHighlightedCode(html))
+        .catch(() => {
+          // Fallback to plain code if language is not supported
+          setHighlightedCode(`<pre><code>${code}</code></pre>`)
+        })
+    }
+  }, [children, match])
+
+  if (match?.[1] === "twitter") {
     return (
       <Tweet
         tweetId={String(children).replace(/\n$/, "")}
@@ -44,10 +59,9 @@ const CodeBlock = ({
       />
     )
   }
+
   return match ? (
-    <SyntaxHighlighter style={a11yDark} language={match[1]} PreTag="div">
-      {String(children).replace(/\n$/, "")}
-    </SyntaxHighlighter>
+    <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />
   ) : (
     <code className={className} {...props}>
       {children}
