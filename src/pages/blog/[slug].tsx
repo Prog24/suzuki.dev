@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState, useRef } from "react"
 import type { ClassAttributes, HTMLAttributes } from "react"
 import Head from "next/head"
 import Link from "next/link"
@@ -39,10 +39,10 @@ const CopyButton = styled(IconButton)(({ theme }) => ({
   top: "8px",
   right: "8px",
   padding: "4px",
-  backgroundColor: "rgba(0, 0, 0, 0.2)",
-  color: "#ffffff",
+  backgroundColor: theme.palette.mode === "dark" ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)",
+  color: theme.palette.mode === "dark" ? "#ffffff" : "#000000",
   "&:hover": {
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
+    backgroundColor: theme.palette.mode === "dark" ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)",
   },
 }))
 
@@ -54,6 +54,7 @@ const CodeBlock = ({
   const { mode, setMode } = useContext(ThemeModeContext)
   const [highlightedCode, setHighlightedCode] = useState<string>("")
   const [copied, setCopied] = useState(false)
+  const copyTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const match = /language-(\w+)/.exec(className || "")
 
   useEffect(() => {
@@ -71,12 +72,40 @@ const CodeBlock = ({
     }
   }, [children, match])
 
+  useEffect(() => {
+    // Cleanup timeout on unmount
+    return () => {
+      if (copyTimeoutRef.current) {
+        clearTimeout(copyTimeoutRef.current)
+      }
+    }
+  }, [])
+
   const handleCopy = async () => {
     const code = String(children).replace(/\n$/, "")
+    
+    // Clear any existing timeout
+    if (copyTimeoutRef.current) {
+      clearTimeout(copyTimeoutRef.current)
+    }
+
     try {
-      await navigator.clipboard.writeText(code)
+      // Try using the Clipboard API first
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(code)
+      } else {
+        // Fallback for browsers without Clipboard API support
+        const textarea = document.createElement("textarea")
+        textarea.value = code
+        textarea.style.position = "fixed"
+        textarea.style.opacity = "0"
+        document.body.appendChild(textarea)
+        textarea.select()
+        document.execCommand("copy")
+        document.body.removeChild(textarea)
+      }
       setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      copyTimeoutRef.current = setTimeout(() => setCopied(false), 2000)
     } catch (err) {
       console.error("Failed to copy code:", err)
     }
