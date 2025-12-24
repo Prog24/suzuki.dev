@@ -8,8 +8,10 @@ import ReactMarkdown from "react-markdown"
 import type { ExtraProps } from "react-markdown"
 import { codeToHtml } from "shiki"
 import { Tweet } from "react-twitter-widgets"
-import { Typography, Breadcrumbs, Box, Chip } from "@mui/material"
+import { Typography, Breadcrumbs, Box, Chip, IconButton, Tooltip } from "@mui/material"
 import { styled } from "@mui/material/styles"
+import ContentCopyIcon from "@mui/icons-material/ContentCopy"
+import CheckIcon from "@mui/icons-material/Check"
 import { ThemeModeContext } from "src/providers/ThemeModeProvider"
 import BasePage from "src/components/BasePage"
 import formatDate from "src/utils/formatDate"
@@ -25,6 +27,25 @@ import {
   PocketIcon,
 } from "react-share"
 
+const CodeBlockContainer = styled("div")({
+  position: "relative",
+  "& pre": {
+    margin: 0,
+  },
+})
+
+const CopyButton = styled(IconButton)(({ theme }) => ({
+  position: "absolute",
+  top: "8px",
+  right: "8px",
+  padding: "4px",
+  backgroundColor: "rgba(0, 0, 0, 0.2)",
+  color: "#ffffff",
+  "&:hover": {
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
+  },
+}))
+
 const CodeBlock = ({
   className,
   children,
@@ -32,6 +53,7 @@ const CodeBlock = ({
 }: ClassAttributes<HTMLPreElement> & HTMLAttributes<HTMLPreElement> & ExtraProps) => {
   const { mode, setMode } = useContext(ThemeModeContext)
   const [highlightedCode, setHighlightedCode] = useState<string>("")
+  const [copied, setCopied] = useState(false)
   const match = /language-(\w+)/.exec(className || "")
 
   useEffect(() => {
@@ -49,6 +71,17 @@ const CodeBlock = ({
     }
   }, [children, match])
 
+  const handleCopy = async () => {
+    const code = String(children).replace(/\n$/, "")
+    try {
+      await navigator.clipboard.writeText(code)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error("Failed to copy code:", err)
+    }
+  }
+
   if (match?.[1] === "twitter") {
     return (
       <Tweet
@@ -62,7 +95,14 @@ const CodeBlock = ({
 
   return match ? (
     highlightedCode ? (
-      <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+      <CodeBlockContainer>
+        <Tooltip title={copied ? "Copied!" : "Copy code"}>
+          <CopyButton onClick={handleCopy} size="small">
+            {copied ? <CheckIcon fontSize="small" /> : <ContentCopyIcon fontSize="small" />}
+          </CopyButton>
+        </Tooltip>
+        <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+      </CodeBlockContainer>
     ) : (
       <pre>
         <code>{String(children).replace(/\n$/, "")}</code>
