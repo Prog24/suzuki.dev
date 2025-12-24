@@ -56,10 +56,12 @@ const CodeBlock = ({
   const [copied, setCopied] = useState(false)
   const copyTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const match = /language-(\w+)/.exec(className || "")
+  
+  // Extract code content without trailing newline
+  const code = String(children).replace(/\n$/, "")
 
   useEffect(() => {
     if (match?.[1] && match[1] !== "twitter") {
-      const code = String(children).replace(/\n$/, "")
       codeToHtml(code, {
         lang: match[1],
         theme: "github-dark",
@@ -70,7 +72,7 @@ const CodeBlock = ({
           setHighlightedCode(`<pre><code>${code}</code></pre>`)
         })
     }
-  }, [children, match])
+  }, [children, match, code])
 
   useEffect(() => {
     // Cleanup timeout on unmount
@@ -82,8 +84,6 @@ const CodeBlock = ({
   }, [])
 
   const handleCopy = async () => {
-    const code = String(children).replace(/\n$/, "")
-    
     // Clear any existing timeout
     if (copyTimeoutRef.current) {
       clearTimeout(copyTimeoutRef.current)
@@ -98,6 +98,7 @@ const CodeBlock = ({
         copySucceeded = true
       } else {
         // Fallback for browsers without Clipboard API support
+        // Note: document.execCommand is deprecated but kept for legacy browser compatibility
         try {
           const textarea = document.createElement("textarea")
           textarea.value = code
@@ -125,7 +126,7 @@ const CodeBlock = ({
   if (match?.[1] === "twitter") {
     return (
       <Tweet
-        tweetId={String(children).replace(/\n$/, "")}
+        tweetId={code}
         options={{
           theme: mode === "dark" && "dark",
         }}
@@ -145,7 +146,7 @@ const CodeBlock = ({
       </CodeBlockContainer>
     ) : (
       <pre>
-        <code>{String(children).replace(/\n$/, "")}</code>
+        <code>{code}</code>
       </pre>
     )
   ) : (
