@@ -4,7 +4,7 @@
         <title>Suzuki@Prog24</title>
         <link>https://suzuki.dev</link>
         <description>Suzuki@Prog24</description>
-        <lastBuildDate>Tue, 23 Dec 2025 07:46:36 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 22 Nov 2025 08:17:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ja</language>
@@ -17,98 +17,98 @@
         <item>
             <title><![CDATA[文章の平均ベクトルを求める(英語)]]></title>
             <link>https://suzuki.dev/blog/spacy</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/spacy</guid>
+            <guid>https://suzuki.dev/blog/spacy</guid>
             <pubDate>Sat, 27 Jun 2020 10:00:00 GMT</pubDate>
             <description><![CDATA[Word2vecを用いて文章の平均ベクトルの計算を行う．]]></description>
         </item>
         <item>
             <title><![CDATA[pandasで特定の時間のデータのみ取得する]]></title>
             <link>https://suzuki.dev/blog/pandas-datetime</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/pandas-datetime</guid>
+            <guid>https://suzuki.dev/blog/pandas-datetime</guid>
             <pubDate>Tue, 26 May 2020 10:00:00 GMT</pubDate>
             <description><![CDATA[pandasで特定の時間のデータのみ取得する]]></description>
         </item>
         <item>
             <title><![CDATA[OpenStreetMapのデータをMongoDBに入れる]]></title>
             <link>https://suzuki.dev/blog/OpenStreetMap-MongoDB</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/OpenStreetMap-MongoDB</guid>
+            <guid>https://suzuki.dev/blog/OpenStreetMap-MongoDB</guid>
             <pubDate>Mon, 11 May 2020 10:00:00 GMT</pubDate>
             <description><![CDATA[OpenStreetMapのデータをMongoDBに入れる]]></description>
         </item>
         <item>
             <title><![CDATA[dockerのログを削除したい]]></title>
             <link>https://suzuki.dev/blog/delete-docker-log</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/delete-docker-log</guid>
+            <guid>https://suzuki.dev/blog/delete-docker-log</guid>
             <pubDate>Tue, 02 Jul 2019 10:00:00 GMT</pubDate>
             <description><![CDATA[dockerのログを削除したい]]></description>
         </item>
         <item>
             <title><![CDATA[春合宿 in あうる京北]]></title>
             <link>https://suzuki.dev/blog/spring-training-camp</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/spring-training-camp</guid>
+            <guid>https://suzuki.dev/blog/spring-training-camp</guid>
             <pubDate>Tue, 26 Mar 2019 10:00:00 GMT</pubDate>
             <description><![CDATA[春合宿 in あうる京北]]></description>
         </item>
         <item>
             <title><![CDATA[ConoHaのリモートデスクトップ]]></title>
             <link>https://suzuki.dev/blog/ConoHa-Remote-Desktop</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/ConoHa-Remote-Desktop</guid>
+            <guid>https://suzuki.dev/blog/ConoHa-Remote-Desktop</guid>
             <pubDate>Thu, 13 Dec 2018 10:00:00 GMT</pubDate>
             <description><![CDATA[ConoHaのリモートデスクトップ]]></description>
         </item>
         <item>
             <title><![CDATA[git challenge#9 に参加してきた]]></title>
             <link>https://suzuki.dev/blog/gitchallenge</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/gitchallenge</guid>
+            <guid>https://suzuki.dev/blog/gitchallenge</guid>
             <pubDate>Thu, 20 Sep 2018 10:00:00 GMT</pubDate>
             <description><![CDATA[git challenge#9 に参加してきた]]></description>
         </item>
         <item>
             <title><![CDATA[1dayインターンに行ってきた]]></title>
             <link>https://suzuki.dev/blog/1day-intern</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/1day-intern</guid>
+            <guid>https://suzuki.dev/blog/1day-intern</guid>
             <pubDate>Tue, 22 May 2018 10:00:00 GMT</pubDate>
             <description><![CDATA[1dayインターンに行ってきた]]></description>
         </item>
         <item>
             <title><![CDATA[CentOS7にknowledgeインストール]]></title>
             <link>https://suzuki.dev/blog/CentOS7-knowledge-install</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/CentOS7-knowledge-install</guid>
+            <guid>https://suzuki.dev/blog/CentOS7-knowledge-install</guid>
             <pubDate>Sun, 18 Feb 2018 10:00:00 GMT</pubDate>
             <description><![CDATA[CentOS7にknowledgeインストール]]></description>
         </item>
         <item>
             <title><![CDATA[ConoHaでサブドメインを使う]]></title>
             <link>https://suzuki.dev/blog/ConoHa-subdomain</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/ConoHa-subdomain</guid>
+            <guid>https://suzuki.dev/blog/ConoHa-subdomain</guid>
             <pubDate>Sun, 18 Feb 2018 10:00:00 GMT</pubDate>
             <description><![CDATA[ConoHaでサブドメインを使う]]></description>
         </item>
         <item>
             <title><![CDATA[Let’s EncryptでSSL設定]]></title>
             <link>https://suzuki.dev/blog/LetsEncrypt-SSL</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/LetsEncrypt-SSL</guid>
+            <guid>https://suzuki.dev/blog/LetsEncrypt-SSL</guid>
             <pubDate>Sun, 18 Feb 2018 10:00:00 GMT</pubDate>
             <description><![CDATA[Let’s EncryptでSSL設定]]></description>
         </item>
         <item>
             <title><![CDATA[Google HomeでConoHaの料金確認]]></title>
             <link>https://suzuki.dev/blog/GoogleHome-ConoHa</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/GoogleHome-ConoHa</guid>
+            <guid>https://suzuki.dev/blog/GoogleHome-ConoHa</guid>
             <pubDate>Mon, 18 Dec 2017 10:00:00 GMT</pubDate>
             <description><![CDATA[Google HomeでConoHaの料金確認]]></description>
         </item>
         <item>
             <title><![CDATA[イベント会場(海上)でネットワーク構築してきた]]></title>
             <link>https://suzuki.dev/blog/event-network</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/event-network</guid>
+            <guid>https://suzuki.dev/blog/event-network</guid>
             <pubDate>Fri, 15 Dec 2017 10:00:00 GMT</pubDate>
             <description><![CDATA[イベント会場(海上)でネットワーク構築してきた]]></description>
         </item>
         <item>
             <title><![CDATA[ConoHaのAPIに触れてみた]]></title>
             <link>https://suzuki.dev/blog/ConoHa-API</link>
-            <guid isPermaLink="false">https://suzuki.dev/blog/ConoHa-API</guid>
+            <guid>https://suzuki.dev/blog/ConoHa-API</guid>
             <pubDate>Thu, 07 Dec 2017 10:00:00 GMT</pubDate>
             <description><![CDATA[ConoHaのAPIに触れてみた]]></description>
         </item>
