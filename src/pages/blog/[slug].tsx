@@ -89,23 +89,34 @@ const CodeBlock = ({
       clearTimeout(copyTimeoutRef.current)
     }
 
+    let copySucceeded = false
+
     try {
       // Try using the Clipboard API first
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(code)
+        copySucceeded = true
       } else {
         // Fallback for browsers without Clipboard API support
-        const textarea = document.createElement("textarea")
-        textarea.value = code
-        textarea.style.position = "fixed"
-        textarea.style.opacity = "0"
-        document.body.appendChild(textarea)
-        textarea.select()
-        document.execCommand("copy")
-        document.body.removeChild(textarea)
+        try {
+          const textarea = document.createElement("textarea")
+          textarea.value = code
+          textarea.style.position = "fixed"
+          textarea.style.opacity = "0"
+          document.body.appendChild(textarea)
+          textarea.select()
+          const successful = document.execCommand("copy")
+          document.body.removeChild(textarea)
+          copySucceeded = successful
+        } catch (fallbackErr) {
+          console.error("Fallback copy method failed:", fallbackErr)
+        }
       }
-      setCopied(true)
-      copyTimeoutRef.current = setTimeout(() => setCopied(false), 2000)
+      
+      if (copySucceeded) {
+        setCopied(true)
+        copyTimeoutRef.current = setTimeout(() => setCopied(false), 2000)
+      }
     } catch (err) {
       console.error("Failed to copy code:", err)
     }
