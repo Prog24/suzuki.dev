@@ -243,8 +243,7 @@ export default SingleBlog
 
 export async function getStaticPaths() {
   const blogSlug = ((context: any) => {
-    const keys_tmp = context.keys()
-    const keys = keys_tmp.slice(0, keys_tmp.length / 2)
+    const keys = context.keys()
     const values = keys.map(context)
     const data = keys.map((key: any, index: any) => {
       const value = values[index]
@@ -265,8 +264,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: any) {
   const { slug } = context.params
   const blogSlug = ((context: any) => {
-    const keys_tmp = context.keys()
-    const keys = keys_tmp.slice(0, keys_tmp.length / 2)
+    const keys = context.keys()
     const values = keys.map(context)
     const data = keys.map((key: any, index: any) => {
       const value = values[index]

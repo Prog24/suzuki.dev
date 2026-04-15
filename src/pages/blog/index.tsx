@@ -40,8 +40,7 @@ export default Index
 
 export async function getStaticProps() {
   const blogs = ((context: any) => {
-    const keys_tmp = context.keys()
-    const keys = keys_tmp.slice(0, keys_tmp.length / 2)
+    const keys = context.keys()
     const values = keys.map(context)
     const data = keys.map((key: any, index: any) => {
       let slug = key.replace(/^.*[\\\/]/, "").slice(0, -3)
