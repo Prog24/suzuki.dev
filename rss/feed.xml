@@ -4,7 +4,7 @@
         <title>Suzuki@Prog24</title>
         <link>https://suzuki.dev</link>
         <description>Suzuki@Prog24</description>
-        <lastBuildDate>Wed, 15 Apr 2026 05:02:01 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 15 Apr 2026 05:05:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ja</language>
@@ -14,6 +14,55 @@
             <link>https://suzuki.dev</link>
         </image>
         <copyright>All rights reserved Suzuki@Prog24</copyright>
+        <item>
+            <title><![CDATA[文章の平均ベクトルを求める(英語)]]></title>
+            <link>https://suzuki.dev/blog/spacy</link>
+            <guid isPermaLink="false">https://suzuki.dev/blog/spacy</guid>
+            <pubDate>Sat, 27 Jun 2020 10:00:00 GMT</pubDate>
+            <description><![CDATA[Word2vecを用いて文章の平均ベクトルの計算を行う．]]></description>
+        </item>
+        <item>
+            <title><![CDATA[pandasで特定の時間のデータのみ取得する]]></title>
+            <link>https://suzuki.dev/blog/pandas-datetime</link>
+            <guid isPermaLink="false">https://suzuki.dev/blog/pandas-datetime</guid>
+            <pubDate>Tue, 26 May 2020 10:00:00 GMT</pubDate>
+            <description><![CDATA[pandasで特定の時間のデータのみ取得する]]></description>
+        </item>
+        <item>
+            <title><![CDATA[OpenStreetMapのデータをMongoDBに入れる]]></title>
+            <link>https://suzuki.dev/blog/OpenStreetMap-MongoDB</link>
+            <guid isPermaLink="false">https://suzuki.dev/blog/OpenStreetMap-MongoDB</guid>
+            <pubDate>Mon, 11 May 2020 10:00:00 GMT</pubDate>
+            <description><![CDATA[OpenStreetMapのデータをMongoDBに入れる]]></description>
+        </item>
+        <item>
+            <title><![CDATA[dockerのログを削除したい]]></title>
+            <link>https://suzuki.dev/blog/delete-docker-log</link>
+            <guid isPermaLink="false">https://suzuki.dev/blog/delete-docker-log</guid>
+            <pubDate>Tue, 02 Jul 2019 10:00:00 GMT</pubDate>
+            <description><![CDATA[dockerのログを削除したい]]></description>
+        </item>
+        <item>
+            <title><![CDATA[春合宿 in あうる京北]]></title>
+            <link>https://suzuki.dev/blog/spring-training-camp</link>
+            <guid isPermaLink="false">https://suzuki.dev/blog/spring-training-camp</guid>
+            <pubDate>Tue, 26 Mar 2019 10:00:00 GMT</pubDate>
+            <description><![CDATA[春合宿 in あうる京北]]></description>
+        </item>
+        <item>
+            <title><![CDATA[ConoHaのリモートデスクトップ]]></title>
+            <link>https://suzuki.dev/blog/ConoHa-Remote-Desktop</link>
+            <guid isPermaLink="false">https://suzuki.dev/blog/ConoHa-Remote-Desktop</guid>
+            <pubDate>Thu, 13 Dec 2018 10:00:00 GMT</pubDate>
+            <description><![CDATA[ConoHaのリモートデスクトップ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[git challenge#9 に参加してきた]]></title>
+            <link>https://suzuki.dev/blog/gitchallenge</link>
+            <guid isPermaLink="false">https://suzuki.dev/blog/gitchallenge</guid>
+            <pubDate>Thu, 20 Sep 2018 10:00:00 GMT</pubDate>
+            <description><![CDATA[git challenge#9 に参加してきた]]></description>
+        </item>
         <item>
             <title><![CDATA[1dayインターンに行ってきた]]></title>
             <link>https://suzuki.dev/blog/1day-intern</link>
