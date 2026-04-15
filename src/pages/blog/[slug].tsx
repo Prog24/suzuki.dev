@@ -56,7 +56,7 @@ const CodeBlock = ({
   const [copied, setCopied] = useState(false)
   const copyTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const match = /language-(\w+)/.exec(className || "")
-  
+
   // Extract code content without trailing newline
   const code = String(children).replace(/\n$/, "")
 
@@ -113,7 +113,7 @@ const CodeBlock = ({
           console.error("Fallback copy method failed:", fallbackErr)
         }
       }
-      
+
       if (copySucceeded) {
         setCopied(true)
         copyTimeoutRef.current = setTimeout(() => setCopied(false), 2000)
