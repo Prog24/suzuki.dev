@@ -36,7 +36,7 @@
     "husky": "9.1.7",
     "marked": "18.0.0",
     "rss-parser": "3.13.0",
-    "typescript": "6.0.2"
+    "typescript": "7.0.2"
   },
   "alias": {
     "src": "./src"
